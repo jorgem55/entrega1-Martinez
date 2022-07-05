@@ -6,7 +6,7 @@ Integrantes:
     Jorge Martinez
 
 Objetivo:
-    Desarrollar una WEB Django con patrón MVT subida a Github.
-    
+    Desarrollar una WEB Django con patrón MVT tipo blog subida a Github.
+
 Funcionamiento:
     

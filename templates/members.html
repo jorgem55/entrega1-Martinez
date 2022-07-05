@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'template.html' %}
+<html lang="en">
+  <head>
+    {% block title %}
+    <title>Members</title>
+    {% endblock title %}
+  </head>
+  <body>
+    {% block body %}
+    <div class="container position-relative">
+      <style>table,td,tr {
+        border: 1px solid black;
+      }
+      </style>
+      <h4>Members</h4>
+      <table cellspacing="0">
+        <tr style="height:50px">
+          <td><b>Name</b></td>
+          <td><b>Bike</b></td>
+          <td><b>Buy date</b></td>
+        </tr>
+        {% for member in list_members %}
+        <tr border: 1px>
+          <td>{{member.name}}</td>
+          <td>{{member.bike}}</td>
+          <td>{{member.buy_date}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      </div>
+      {% endblock body %}
+    </body>
+</html>
