@@ -7,28 +7,45 @@
     {% endblock title %}
   </head>
   <body>
-    {% block body %}
+    {% block section %}
     <div class="container position-relative">
       <style>table,td,tr {
-        border: 1px solid black;
-      }
+          border: 1px solid black;
+        }
       </style>
       <h4>Members</h4>
-      <table cellspacing="0">
-        <tr style="height:50px">
-          <td><b>Name</b></td>
-          <td><b>Bike</b></td>
-          <td><b>Buy date</b></td>
-        </tr>
-        {% for member in list_members %}
-        <tr border: 1px>
-          <td>{{member.name}}</td>
-          <td>{{member.bike}}</td>
-          <td>{{member.buy_date}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      </div>
-      {% endblock body %}
+      <p>
+        <form action={% url 'members' %}>
+          {{form}}
+          <button>Search</button>
+        </form>
+      </p>
+      <p>
+        <table cellspacing="0" align="center">
+          <tr style="height:50px">
+            <td><b>Name</b></td>
+            <td><b>Bike</b></td>
+            <td><b>Buy Date</b></td>
+          </tr>
+          {% if members %}
+              {% for member in members %}
+              <tr>
+                <td>{{member.name}}</td>
+                <td>{{member.bike}}</td>
+                <td>{{member.buy_date}}</td>
+              </tr>
+              {% endfor %}
+          {% else %}
+          Info not found.
+          {% endif %}
+        </table>
+      </p>
+      <p>
+        <form action={% url 'add_member' %} method="post">
+          {% csrf_token %}
+          <button>Add member</button>
+        </form>
+      </p>
+    {% endblock section %}
     </body>
 </html>

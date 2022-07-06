@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'template.html' %}
+<html lang="en">
+    <head>
+        {% comment %} {% load static %} {% endcomment %}
+        {% block title %}
+        <title>Contact</title>
+        {% endblock title %}
+
+    </head>
+    <body>
+        {% block section %}
+        <h4>Team:</h4>
+        <li>Jonatan Frean</li>
+        Email, cellphone
+        <br><br>
+        <li>Jonas Zlatkis</li>
+        Email, cellphone
+        <br><br>
+        <li>Jorge Martinez</li>
+        Email, cellphone
+        {% endblock section %}
+    </body>
+</html>

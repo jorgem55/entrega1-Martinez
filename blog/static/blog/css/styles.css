@@ -11361,11 +11361,11 @@ header.masthead h1, header.masthead .h1 {
   background-color: #343a40;
   background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
   background-size: cover;
-  padding-top: 20rem;
-  padding-bottom: 20rem;
+  padding-top: 16rem;
+  padding-bottom: 16rem;
 }
 .call-to-action:before {
-  content: "Coderhouse";
+  content: "";
   position: center;
   background-color: #1c375e;
   height: 100%;
