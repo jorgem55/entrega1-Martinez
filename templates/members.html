@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends 'template.html' %}
 <html lang="en">
   <head>
@@ -9,10 +8,6 @@
   <body>
     {% block section %}
     <div class="container position-relative">
-      <style>table,td,tr {
-          border: 1px solid black;
-        }
-      </style>
       <h4>Members</h4>
       <p>
         <form action={% url 'members' %}>
@@ -22,17 +17,23 @@
       </p>
       <p>
         <table cellspacing="0" align="center">
+          <thead>
           <tr style="height:50px">
             <td><b>Name</b></td>
             <td><b>Bike</b></td>
             <td><b>Buy Date</b></td>
+            <td colspan="3"><b>Actions</b></td>
           </tr>
+          </thead>
           {% if members %}
               {% for member in members %}
-              <tr>
+              <tr style="height:30px">
                 <td>{{member.name}}</td>
                 <td>{{member.bike}}</td>
                 <td>{{member.buy_date}}</td>
+                <td><a href={% url 'show_member' member.id %}>Show</a></td>
+                <td><a href={% url 'edit_member' member.id %}>Edit</a></td>
+                  <td><a href={% url 'delete_member' member.id %}>Delete</a></td>
               </tr>
               {% endfor %}
           {% else %}

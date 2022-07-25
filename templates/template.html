@@ -21,8 +21,8 @@
         <div class="container">
             <a class="navbar-brand" href={% url 'index' %}>Home</a>
             <a class="navbar-brand" href={% url 'members' %}>Members</a>
-            {% comment %} <a class="navbar-brand" href={% url 'photos' %}>Photos Gallery</a>
-            <a class="navbar-brand" href={% url 'posts' %}>Posts</a> {% endcomment %}
+            {% comment %} <a class="navbar-brand" href={% url 'photos' %}>Photos Gallery</a> {% endcomment %}
+            <a class="navbar-brand" href={% url 'posts' %}>Posts</a>
             <a class="navbar-brand" href="../admin">Admin</a>
         </div>
     </nav>
@@ -36,7 +36,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         {% block section %}
-                        <h2 class="mb-4">Welcome To My Blog!</h2>
+                        
                         {% endblock section %}
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                         <li class="list-inline-item">⋅</li>
                         <li class="list-inline-item"><a href={% url 'contact' %}>Contact</a></li>
                     </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; Website 2022. All Rights Reserved.</p>
+                    <p class="text-muted small mb-4 mb-lg-0">&copy; JAM Website 2022. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
