@@ -1,11 +1,9 @@
 {% extends 'template.html' %}
-
 {% block title %}
 <title>Add member</title>
 {% endblock title %}
-
 {% block section %}
-<h4>Adding member</h4>
+<h3>Adding member</h3>
 <p>
     <form action={% url 'add_member' %} method="post">
         {% csrf_token %}
@@ -13,7 +11,10 @@
             {{form.as_table}}
         </table>
         <h8>*** Format: MM/DD/YYYY</h8><br>
-        <button>Add</button>
+        <button>Confirm</button>
     </form>
+</p>
+<p>
+    <a href={% url 'members' %}>Back</a>
 </p>
 {% endblock section %}

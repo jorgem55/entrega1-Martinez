@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+{% block title %}
+<title>Profile edition</title>
+{% endblock title %}
+{% block section %}
+<h1>
+    Profile edition: {{request.user.username}}
+</h1>
+<p>
+    <form action={% url 'edit_profile' %} method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <button>Edit</button>
+    </form>
+    <p>
+        <a href={% url 'change_password' %}>Change password</a>
+    </p>
+</p>
+{% endblock section %}

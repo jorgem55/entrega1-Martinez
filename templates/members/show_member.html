@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% block title %}
+<title>Show Member</title>
+{% endblock title %}
+{% block section %}
+<h3>Show Member</h3>
+<p>
+    <li> {{member.name}}</li>
+    <br>
+    <li> {{member.bike}}</li>
+    <br>
+    <li> {{member.buy_date}}</li>
+</p>
+<p>
+    <a href={% url 'members' %}>Back</a>
+</p>
+{% endblock section %}

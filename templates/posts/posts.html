@@ -1,0 +1,35 @@
+{% extends 'template.html' %}
+{% block title %}
+<title>Posts</title>
+{% endblock title %}
+{% block section %}
+<h3>Posts</h3>
+<p>
+  <form action={% url 'posts' %}>
+    {{form}}
+    <button>Search</button>
+  </form>
+</p>
+<p>
+  {% if object_list %}
+    {% for post in object_list %}
+    <li>
+        {{post.title}}<br>
+        {{post.content}} <a href={% url 'show_post' post.id %}>View more...</a><br>
+        Author: {{post.author}} - Date: {{post.creation_date}}<br>          
+        <a href={% url 'edit_post' post.id %}>Edit</a>
+        <a href={% url 'delete_post' post.id %}>Delete</a>
+        <br><br>
+    </li>
+    {% endfor %}
+  {% else %}
+  Info not found.
+  {% endif %}
+</p>
+<p>
+  <form action={% url 'add_post' %} method="post">
+    {% csrf_token %}
+    <button>Add post</button>
+  </form>
+</p>
+{% endblock section %}

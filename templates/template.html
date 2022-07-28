@@ -8,63 +8,48 @@
         {% block title %}
         <title>template</title>
         {% endblock title %}
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href={% static 'blog/css/styles.css' %} rel="stylesheet" />
     </head>
     {% endblock header %}
-
     {% block nav %}
-    <!-- Navigation-->
     <nav class="navbar navbar-light bg-light static-top">
         <div class="container">
             <a class="navbar-brand" href={% url 'index' %}>Home</a>
             <a class="navbar-brand" href={% url 'members' %}>Members</a>
-            {% comment %} <a class="navbar-brand" href={% url 'photos' %}>Photos Gallery</a> {% endcomment %}
             <a class="navbar-brand" href={% url 'posts' %}>Posts</a>
-            <a class="navbar-brand" href="../admin">Admin</a>
+            {% comment %} <a class="navbar-brand" href={% url 'photos' %}>Photos Gallery</a> {% endcomment %}
+            {% if request.user.is_authenticated %}
+                <a class="navbar-brand" href={% url 'profile' %}>
+                {% if request.user.moreuserinfo.avatar %}
+                    <img src={{request.user.moreuserinfo.avatar.url}} alt="" height="50px">
+                {% endif %}
+                {{request.user.username}}
+                </a>
+                <a class="navbar-brand" href={% url 'logout' %}>Log out</a>
+            {% else %}
+                <a class="navbar-brand" href={% url 'login' %}>Log in</a>
+                <a class="navbar-brand" href={% url 'signin' %}>Sing in</a>
+            {% endif %}
         </div>
     </nav>
     {% endblock nav %} 
     {% block body %}
     <body>
-        
-        <!-- Call to Action-->
         <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        {% block section %}
-                        
-                        {% endblock section %}
-                    </div>
-                </div>
-            </div>
+            {% block section %}
+            {% endblock section %}
         </section>
-        
     </body>
     {% endblock body%}
     {% block footer %}
-    <!-- Footer-->
     <footer class="footer bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-                    <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href={% url 'about' %}>About</a></li>
-                        <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href={% url 'contact' %}>Contact</a></li>
-                    </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">&copy; JAM Website 2022. All Rights Reserved.</p>
-                </div>
-            </div>
+            ⋅ <li class="list-inline-item"><a href={% url 'about' %}>About</a></li>
+            ⋅ <li class="list-inline-item"><a href={% url 'contact' %}>Contact</a></li>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; JAM Website 2022. All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src={% static 'blog/js/scripts.js' %}></script>
     {% endblock footer %}
 </html>

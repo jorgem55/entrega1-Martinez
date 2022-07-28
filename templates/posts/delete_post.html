@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% block title %}
+<title>Delete post</title>
+{% endblock title %}
+{% block section %}
+<h4>Delete post</h4>
+<p>
+  <form action={% url 'delete_post' object.id %} method="post">
+    {% csrf_token %}
+    Are you sure to remove it?
+    <button>Delete</button>
+  </form>
+</p>
+<p>
+  <a href={% url 'posts' %}>Back</a>
+</p>
+{% endblock section %}
