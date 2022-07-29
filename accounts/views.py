@@ -30,12 +30,12 @@ def signin(request):
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index', 'Success login')
+            return redirect('index')
         else:
-            return render(request, 'accounts/signin.html', {'form': form}, 'Unsuccess login')
+            return render(request, 'accounts/signin.html', {'form': form})
     
     form = MyUserCreationForm()
-    return render(request, 'accounts/signin.html', {'form': form}, 'You must be login')
+    return render(request, 'accounts/signin.html', {'form': form})
 
 @login_required
 def profile(request):
@@ -58,6 +58,7 @@ def edit_profile(request):
             more_user_info.avatar = data.get('avatar') if data.get('avatar') else more_user_info.avatar
             more_user_info.save()
             user.save()
+            
             return redirect('profile')
         else:
             return render(request, 'accounts/edit_profile.html', {'form': form})
@@ -71,7 +72,6 @@ def edit_profile(request):
         })
 
     return render(request, 'accounts/edit_profile.html', {'form': form})
-
 
 class ChangePasswordView(PasswordChangeView):
     template_name = 'accounts/change_password.html'

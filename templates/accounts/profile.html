@@ -4,21 +4,22 @@
 {% endblock title %}
 {% block section %}
 <h1>
-    User profile {{request.user.username}}
+    User profile: {{request.user.username}}
 </h1>
 <p>
-    <ul>
-        <li>First name: {{request.user.first_name}}</li>
-        <li>Last name: {{request.user.last_name}}</li>
-        <li>Email: {{request.user.email}}</li>
-        <li><p>Avatar:</p>
-            {% if request.user.moreuserinfo.avatar %}
-            <img src={{request.user.moreuserinfo.avatar.url}} alt="" height="200px">
-            {% endif %}
-        </li>
-    </ul>
+    <li>First name: {{request.user.first_name}}</li>
+    <li>Last name: {{request.user.last_name}}</li>
+    <li>Email: {{request.user.email}}</li>
+    <li>Avatar:
+        {% if request.user.moreuserinfo.avatar %}
+        <img src={{request.user.moreuserinfo.avatar.url}} alt="" height="200px">
+        {% endif %}
+    </li>
 </p>
 <p>
     <a href={% url 'edit_profile' %}>Edit my info</a>
+</p>
+<p>
+    <a href={% url 'index' %}>Back</a>
 </p>
 {% endblock section %}

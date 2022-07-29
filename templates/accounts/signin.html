@@ -7,9 +7,9 @@
 <p>
     <form action={% url 'signin' %} method="post">
         {% csrf_token %}
-        <table>
+        <table cellspacing="0" align="center">
             {{form.as_table}}
-        </table>
+        </table><br>
         <button>Sign in</button>
     </form>
 </p>

@@ -4,15 +4,17 @@
 {% endblock title %}
 {% block section %}
 <h3>Show Post</h3>
-<p>
-    <li> 
-        {{post.title}}<br>
-        {{post.creation_date}}<br>
+<p>{{form}}
+    <table align="center">
+        {{form.media}}
+        {{form.as_table}}
+        </h3>{{post.title}}</h3><br>
+        Posted: {{post.creation_date}}<br>
         {% comment %} {{post.subtitle}} {% endcomment %}<br>
         {% comment %} {{post.image}} {% endcomment %}<br>
-        {{post.content}}<br>
-        Author {{post.author}}<br>
-    </li>     
+        {{post.content | safe}}<br>
+        Published by {{post.author}}<br>
+    </table>
 </p>
 <p>
     <a href={% url 'posts' %}>Back</a>

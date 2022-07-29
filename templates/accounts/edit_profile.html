@@ -9,13 +9,12 @@
 <p>
     <form action={% url 'edit_profile' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
-        <table>
+        <table cellspacing="0" align="center">
             {{form.as_table}}
-        </table>
-        <button>Edit</button>
+        </table><br>
+        <button>Confirm</button>
     </form>
-    <p>
-        <a href={% url 'change_password' %}>Change password</a>
-    </p>
+    <p><br><a href={% url 'change_password' %}>Change password</a></p>
+    <p><a href={% url 'index' %}>Back</a></p>
 </p>
 {% endblock section %}

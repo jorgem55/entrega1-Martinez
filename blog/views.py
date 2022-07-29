@@ -1,3 +1,4 @@
+from dataclasses import fields
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.template import loader
@@ -41,7 +42,8 @@ def members(request):
         members = Members.objects.all()
     form = SearchMember()
     return render(request, 'members/members.html', {'members': members, 'form': form})
-    
+
+@login_required
 def add_member(request):
     if request.method == 'POST':
         form = FormMember(request.POST)
@@ -117,11 +119,13 @@ class ListPosts(ListView):
         context["form"] = SearchPost()
         return context
     
-class Add_post(CreateView):
+class Add_post(LoginRequiredMixin, CreateView):
     model = Posts
     template_name = "posts/add_post.html"
     success_url= '/posts'
     fields=['title','content','author','creation_date']
+    class Meta:
+        help_texts = None
     
 class Show_post(DetailView):
     model = Posts

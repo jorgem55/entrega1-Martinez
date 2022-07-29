@@ -18,13 +18,12 @@
             <a class="navbar-brand" href={% url 'index' %}>Home</a>
             <a class="navbar-brand" href={% url 'members' %}>Members</a>
             <a class="navbar-brand" href={% url 'posts' %}>Posts</a>
-            {% comment %} <a class="navbar-brand" href={% url 'photos' %}>Photos Gallery</a> {% endcomment %}
             {% if request.user.is_authenticated %}
                 <a class="navbar-brand" href={% url 'profile' %}>
                 {% if request.user.moreuserinfo.avatar %}
                     <img src={{request.user.moreuserinfo.avatar.url}} alt="" height="50px">
                 {% endif %}
-                {{request.user.username}}
+                &nbsp&nbspLogged in as {{request.user.username}}
                 </a>
                 <a class="navbar-brand" href={% url 'logout' %}>Log out</a>
             {% else %}

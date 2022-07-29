@@ -1,5 +1,9 @@
+from enum import unique
+from pydoc import text
+from tkinter import ALL
+from tkinter.tix import Form
 from django import forms
-
+from ckeditor.fields import RichTextFormField
 class FormMember(forms.Form):
     name = forms.CharField(max_length=20)
     bike = forms.CharField(max_length=20)
@@ -9,12 +13,12 @@ class SearchMember(forms.Form):
     name = forms.CharField(max_length=20, required=False)
 
 class FormPost(forms.Form):
-    title = forms.CharField(max_length=20)
+    title = forms.CharField(help_text=None, max_length=20)
     # subtitle=forms.CharField(max_length=20)
-    content=forms.Textarea()
+    content = RichTextFormField()
     author = forms.CharField(max_length=20)
     creation_date = forms.DateField(required=False)
-    # image = forms.ImageField(upload_to='images', null=True, blank=True)
-    
+    # image = forms.ImageField(required=False)
+        
 class SearchPost(forms.Form):
     title = forms.CharField(max_length=20, required=False)

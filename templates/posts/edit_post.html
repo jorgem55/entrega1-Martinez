@@ -4,12 +4,13 @@
 {% endblock title %}
 {% block section %}
 <h3>Edit Post</h3>
-<p>
+<p>{{form}}
     <form action={% url 'edit_post' post.id %} method="post">
         {% csrf_token %}
-        <table>
+        <table  cellspacing="0" align="center">
+            {{form.media}}
             {{form.as_table}}
-        </table>
+        </table><br>
         <button>Confirm</button>
     </form>
 </p>
