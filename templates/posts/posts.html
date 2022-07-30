@@ -13,9 +13,10 @@
 <p>
   {% if object_list %}
     {% for post in object_list %}
-    <li>
-        <b>{{post.title}}</b>&nbsp&nbsp<a href={% url 'show_post' post.id %}><b>View more...</b></a><br>
-        <i><b style=color:black>⋅ {{post.creation_date}}⋅ {{post.author}}</b></i><br>
+    <li class="post container" style="border: 1px solid grey">
+      <img src={{post.image.url}} height="90px">
+        <b>&nbsp&nbsp{{post.title}}</b>&nbsp&nbsp<a href={% url 'show_post' post.id %}><b>View more...</b></a><br><br>
+        <i><b style=color:black>⋅ {{post.creation_date}}&nbsp&nbsp⋅ {{post.author}}</b></i>
         <a href={% url 'edit_post' post.id %}><b>Edit</b></a>&nbsp&nbsp
         <a href={% url 'delete_post' post.id %}><b>Delete</b></a>
         <br><br>
