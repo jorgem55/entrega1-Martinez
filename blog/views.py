@@ -12,24 +12,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    template1 = loader.get_template('index.html')
-    render1=template1.render()
-    return HttpResponse(f'{render1}')
-
+    return render(request,'index.html')
+    
 #---------------
 #---------FOOT
 #---------------
 def about(request):
-    template1 = loader.get_template('about.html')
-    render1=template1.render()
-    
-    return HttpResponse(f'{render1}')
+    return render(request,'about.html')
 
 def contact(request):
-    template1 = loader.get_template('contact.html')
-    render1=template1.render()
-    
-    return HttpResponse(f'{render1}')
+    return render(request,'contact.html')
 
 #---------------
 #---------MEMBER
@@ -123,7 +115,7 @@ class Add_post(LoginRequiredMixin, CreateView):
     model = Posts
     template_name = "posts/add_post.html"
     success_url= '/posts'
-    fields=['title','content','author','creation_date']
+    fields=['title','subtitle','content','author','creation_date','image']
     class Meta:
         help_texts = None
     
@@ -135,7 +127,9 @@ class Edit_post(LoginRequiredMixin, UpdateView):
     model = Posts
     template_name = "posts/edit_post.html"
     success_url= '/posts'
-    fields=['title','content','author','creation_date']
+    fields=['title','subtitle','content','author','creation_date','image']
+    class Meta:
+        help_texts = None
 
 class Delete_post(LoginRequiredMixin, DeleteView):
     model = Posts

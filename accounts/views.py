@@ -18,9 +18,9 @@ def login(request):
                 django_login(request, user)
                 return redirect('index')
             else:
-                messages.error(request, "Invalid username or password.")
+                return render(request, 'accounts/login.html', {'form': form})
         else:
-            messages.error(request, "Invalid username or password.")
+            return render(request, 'accounts/login.html', {'form': form})
     
     form = AuthenticationForm()
     return render(request, 'accounts/login.html', {'form': form})
@@ -65,9 +65,9 @@ def edit_profile(request):
             
     form = MyUserEditForm(
         initial={
-            'email': user.email,
             'first_name': user.first_name,
             'last_name': user.last_name,
+            'email': user.email,
             'avatar': more_user_info.avatar
         })
 

@@ -5,8 +5,7 @@
 {% block section %}
 <h3>Adding post</h3>
 <p>
-    <form action={% url 'add_post' %} method="post">
-        {% comment %} enctype='multipart/form-data' {% endcomment %}
+    <form action={% url 'add_post' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
         <table align="center">
             {{form.media}}

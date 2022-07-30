@@ -5,11 +5,9 @@
 {% block section %}
 <h3>Show Member</h3>
 <p>
-    <li> {{member.name}}</li>
-    <br>
-    <li> {{member.bike}}</li>
-    <br>
-    <li> {{member.buy_date}}</li>
+    <li> <b>Name: </b>{{member.name}}</li>
+    <li> <b>Bike: </b>{{member.bike}}</li>
+    <li> <b>Buy Date: </b> {{member.buy_date}}</li>
 </p>
 <p>
     <a href={% url 'members' %}>Back</a>

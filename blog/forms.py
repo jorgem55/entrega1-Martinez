@@ -13,12 +13,14 @@ class SearchMember(forms.Form):
     name = forms.CharField(max_length=20, required=False)
 
 class FormPost(forms.Form):
-    title = forms.CharField(help_text=None, max_length=20)
+    title = forms.CharField(max_length=20)
     # subtitle=forms.CharField(max_length=20)
     content = RichTextFormField()
     author = forms.CharField(max_length=20)
     creation_date = forms.DateField(required=False)
     # image = forms.ImageField(required=False)
+    class Meta:
+        help_texts = None
         
 class SearchPost(forms.Form):
     title = forms.CharField(max_length=20, required=False)

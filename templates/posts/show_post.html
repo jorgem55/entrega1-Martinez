@@ -3,20 +3,17 @@
 <title>Show Post</title>
 {% endblock title %}
 {% block section %}
-<h3>Show Post</h3>
-<p>{{form}}
-    <table align="center">
-        {{form.media}}
-        {{form.as_table}}
-        </h3>{{post.title}}</h3><br>
-        Posted: {{post.creation_date}}<br>
-        {% comment %} {{post.subtitle}} {% endcomment %}<br>
-        {% comment %} {{post.image}} {% endcomment %}<br>
-        {{post.content | safe}}<br>
-        Published by {{post.author}}<br>
+    <table class="container">
+        <td class="post container">
+            <h5 style=color:brown>{{object.title}}</h5>
+            Posted: {{object.creation_date}}<br><br>
+            <h5>{{object.subtitle}}</h5><br>
+            <img src={{object.image.url}} height="350px"><br><br>
+            {{object.content | safe}}
+            <p style=color:brown>Published by {{object.author}}</p>
+        </td>
     </table>
-</p>
-<p>
-    <a href={% url 'posts' %}>Back</a>
-</p>
+    <p>
+        <br><a href={% url 'posts' %}>Back</a>
+    </p>
 {% endblock section %}

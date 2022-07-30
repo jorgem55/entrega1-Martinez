@@ -27,9 +27,9 @@
             <td>{{member.name}}</td>
             <td>{{member.bike}}</td>
             <td>{{member.buy_date}}</td>
-            <td><a href={% url 'show_member' member.id %}>Show</a></td>
-            <td><a href={% url 'edit_member' member.id %}>Edit</a></td>
-            <td><a href={% url 'delete_member' member.id %}>Delete</a></td>
+            <td><a href={% url 'show_member' member.id %}><b>Show</b></a></td>
+            <td><a href={% url 'edit_member' member.id %}><b>Edit</b></a></td>
+            <td><a href={% url 'delete_member' member.id %}><b>Delete</b></a></td>
           </tr>
           {% endfor %}
       {% else %}

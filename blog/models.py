@@ -10,12 +10,12 @@ class Members(models.Model):
         return f'Member: {self.name}'
 
 class Posts(models.Model):
-    title=models.CharField(max_length=20)
-    # subtitle=models.CharField(max_length=20)
+    title=models.CharField(max_length=100)
+    subtitle=models.CharField(max_length=100)
     content=RichTextField(null=True)
     author=models.CharField(max_length=20)
     creation_date = models.DateField(null=True)
-    # image = models.ImageField(upload_to='images', null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
     
     def __str__(self):
         return f'Post: {self.title}'

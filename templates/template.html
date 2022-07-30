@@ -13,7 +13,7 @@
     </head>
     {% endblock header %}
     {% block nav %}
-    <nav class="navbar navbar-light bg-light static-top">
+    <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href={% url 'index' %}>Home</a>
             <a class="navbar-brand" href={% url 'members' %}>Members</a>
@@ -34,8 +34,8 @@
     </nav>
     {% endblock nav %} 
     {% block body %}
-    <body>
-        <section class="call-to-action text-white text-center" id="signup">
+    <body class="text-white text-center">
+        <section class="call-to-action text-white text-center">
             {% block section %}
             {% endblock section %}
         </section>
@@ -43,10 +43,13 @@
     {% endblock body%}
     {% block footer %}
     <footer class="footer bg-light">
-        <div class="container">
-            ⋅ <li class="list-inline-item"><a href={% url 'about' %}>About</a></li>
-            ⋅ <li class="list-inline-item"><a href={% url 'contact' %}>Contact</a></li>
-            <p class="text-muted small mb-4 mb-lg-0">&copy; JAM Website 2022. All Rights Reserved.</p>
+        <div class="container" style='text-align:left'>
+            <p class="text-muted small mb-4 mb-lg-0">&copy; 2022  JMartinez Inc. All Rights Reserved.
+                <font size="3">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <a style=color:brown><b>⋅&nbsp&nbsp</b></a><a href={% url 'about' %}>About</a>
+                <a style=color:brown><b>&nbsp&nbsp&nbsp&nbsp⋅&nbsp&nbsp</b></a><a href={% url 'contact' %}>Contact</a>
+                </font>
+            </p>
         </div>
     </footer>
     <script src={% static 'blog/js/scripts.js' %}></script>

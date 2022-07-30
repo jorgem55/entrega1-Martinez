@@ -3,9 +3,9 @@
 <title>Profile edition</title>
 {% endblock title %}
 {% block section %}
-<h1>
+<h2>
     Profile edition: {{request.user.username}}
-</h1>
+</h2>
 <p>
     <form action={% url 'edit_profile' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
